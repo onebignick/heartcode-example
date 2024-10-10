@@ -3,6 +3,7 @@ import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, navigationMenuT
 import { ModeToggle } from "../mode-toggle";
 import Image from "next/image";
 import Logo from "@/app/assets/logo.png"
+import { SignedIn, SignInButton, SignedOut, UserButton } from "@clerk/nextjs";
 
 export function NavigationBar() {
     return (
@@ -31,8 +32,14 @@ export function NavigationBar() {
                 </Link>
             </NavigationMenuItem>
             </div>
-            <div>
+            <div className="flex gap-4">
                 <ModeToggle/>
+                <SignedOut>
+                    <SignInButton />
+                </SignedOut>
+                <SignedIn>
+                    <UserButton />
+                </SignedIn>
             </div>
         </NavigationMenu>
     )
